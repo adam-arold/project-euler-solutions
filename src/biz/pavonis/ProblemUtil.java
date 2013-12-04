@@ -1,5 +1,6 @@
 package biz.pavonis;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -98,5 +99,16 @@ public final class ProblemUtil {
 	public static boolean isPalindrome(long n) {
 		return Long.toString(n).equals(new StringBuilder(Long.toString(n)).reverse().toString());
 	}
-
+	
+	/**
+	 * Naive (dumb) implementation of the factorial function.
+	 * @param n
+	 * @return
+	 */
+	public static BigInteger factorial(BigInteger n) {
+		if(n.equals(BigInteger.ONE)) {
+			return BigInteger.ONE;
+		}
+		return n.multiply(factorial(n.subtract(BigInteger.ONE)));
+	}
 }
